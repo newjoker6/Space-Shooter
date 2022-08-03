@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Sprites/Background.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Background.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Spawner.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/EnemySpawner.tscn" type="PackedScene" id=6]
+
+[node name="World" type="Node2D"]
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 112, 200 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+reset_scroll = 600
+start_scroll = 200
+
+[node name="Background2" type="Sprite" parent="."]
+position = Vector2( 112, -200 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+reset_scroll = 200
+start_scroll = -200
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 110, 360 )
+
+[node name="Spawner" parent="." instance=ExtResource( 4 )]
+
+[node name="EnemySpawner" parent="." instance=ExtResource( 6 )]
+
+[node name="GUI" parent="." instance=ExtResource( 5 )]

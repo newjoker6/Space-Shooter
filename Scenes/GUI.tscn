@@ -1,0 +1,78 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Sprites/Shield_Emptyl.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Speed_Full.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Speed_Empty.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Multishot_Empty.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Health_Empty.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Multishot_Full.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Health_Full.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Shield_Full.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/GUI.gd" type="Script" id=9]
+
+[node name="GUI" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 9 )
+
+[node name="HealthBar" type="TextureProgress" parent="."]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 85.0
+margin_bottom = 21.0
+max_value = 5.0
+value = 5.0
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 7 )
+
+[node name="MultiShotBar" type="TextureProgress" parent="."]
+margin_left = 158.0
+margin_top = 5.0
+margin_right = 174.0
+margin_bottom = 21.0
+max_value = 1.0
+texture_under = ExtResource( 4 )
+texture_progress = ExtResource( 6 )
+
+[node name="SpeedBar" type="TextureProgress" parent="."]
+margin_left = 180.0
+margin_top = 5.0
+margin_right = 196.0
+margin_bottom = 21.0
+max_value = 1.0
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 2 )
+
+[node name="ShieldBar" type="TextureProgress" parent="."]
+margin_left = 203.0
+margin_top = 5.0
+margin_right = 219.0
+margin_bottom = 21.0
+max_value = 1.0
+texture_under = ExtResource( 1 )
+texture_progress = ExtResource( 8 )
+
+[node name="GameOver" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="GOBG" type="ColorRect" parent="GameOver"]
+margin_right = 239.0
+margin_bottom = 411.0
+color = Color( 0.129412, 0.129412, 0.129412, 0.545098 )
+
+[node name="GOText" type="Label" parent="GameOver"]
+margin_left = 75.0
+margin_top = 164.0
+margin_right = 151.0
+margin_bottom = 178.0
+text = "GAME OVER"
+
+[node name="RetryButton" type="Button" parent="GameOver"]
+margin_left = 93.0
+margin_top = 200.0
+margin_right = 138.0
+margin_bottom = 220.0
+text = "Retry"
+
+[connection signal="pressed" from="GameOver/RetryButton" to="." method="_on_RetryButton_pressed"]
